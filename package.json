@@ -2,7 +2,7 @@
   "name": "sptrans-olhovivo-wrapper",
   "version": "1.0.0",
   "description": "Wrapper para uso da API OlhoVivo da SPTrans",
-  "main": "index.js",
+  "main": "sptrans.js",
   "scripts": {
     "test": "jasmine --config=./test-spec/support/jasmine.json"
   },
