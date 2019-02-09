@@ -1,0 +1,31 @@
+{
+  "name": "sptrans-olhovivo-wrapper",
+  "version": "1.0.0",
+  "description": "Wrapper para uso da API OlhoVivo da SPTrans",
+  "main": "index.js",
+  "scripts": {
+    "test": "jasmine --config=./test-spec/support/jasmine.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dielloarias/sptrans-olhovivo-wrapper.git"
+  },
+  "keywords": [
+    "API",
+    "OlhoVivo",
+    "SPTrans",
+    "Wrapper"
+  ],
+  "author": {
+    "name": "Diello Cardoso de La Paz Arias",
+    "email": "dielloarias@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dielloarias/sptrans-olhovivo-wrapper/issues"
+  },
+  "homepage": "https://github.com/dielloarias/sptrans-olhovivo-wrapper#readme",
+  "dependencies": {
+    "restify-clients": "2.6.4"
+  }
+}
