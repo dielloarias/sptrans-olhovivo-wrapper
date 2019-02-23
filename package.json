@@ -1,6 +1,6 @@
 {
   "name": "sptrans-olhovivo-wrapper",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Wrapper para uso da API OlhoVivo da SPTrans",
   "main": "sptrans.js",
   "scripts": {

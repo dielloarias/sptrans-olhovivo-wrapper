@@ -63,15 +63,16 @@ SPTransWrapper.prototype._autenticar = function() {
     });
 };
 
-SPTransWrapper.prototype.buscarLinha = function(codigoLinha, sentido) {
+SPTransWrapper.prototype.buscarLinha = function(codigoLinha) {
 
-    let composicaoSentido = "";
-    if (sentido) {
-        composicaoSentido = `&sentido=${sentido}`;
-    }
+    let endpoint = `/v${this._versao}/Linha/Buscar?termosBusca=${codigoLinha}`;
+    let fn = this._queryAPI(endpoint);
+    return fn;
+};
 
-    let endpoint = `/v${this._versao}/Linha/Buscar?termosBusca=${codigoLinha}${composicaoSentido}`;
+SPTransWrapper.prototype.buscarLinhaSentido = function(codigoLinha, sentido = 1) {
 
+    let endpoint = `/v${this._versao}/Linha/BuscarLinhaSentido?termosBusca=${codigoLinha}&sentido=${sentido}`;
     let fn = this._queryAPI(endpoint);
     return fn;
 };
@@ -161,6 +162,6 @@ SPTransWrapper.prototype.previsaoParada = function(codigoParada) {
     let fn = this._queryAPI(endpoint);
     return fn;
 };
-module.exports = function() {
-    return SPTransWrapper;
-};
+
+module.exports = SPTransWrapper;
+
