@@ -30,7 +30,7 @@ SPTransWrapper.prototype._queryAPI = function(endpoint) {
     if (!self._cookie) {
         return self._autenticar().then(fn);
     }
-    return fn;
+    return fn();
 
 };
 
@@ -133,7 +133,7 @@ SPTransWrapper.prototype.garagem = function(codigoEmpresa, codigoLinha) {
         composicaoQuery = `&codigoLinha=${codigoLinha}`;
     }
 
-    let endpoint = `/v${this._versao}/Posicao/Garagem?codigoEmpresa=${codigoEmpresa}`;
+    let endpoint = `/v${this._versao}/Posicao/Garagem?codigoEmpresa=${codigoEmpresa}${composicaoQuery}`;
 
     let fn = this._queryAPI(endpoint);
     return fn;
@@ -161,6 +161,21 @@ SPTransWrapper.prototype.previsaoParada = function(codigoParada) {
 
     let fn = this._queryAPI(endpoint);
     return fn;
+};
+
+SPTransWrapper.prototype.posicaoPorLetreiro = function(codigo, sentido = 1) {
+
+    let buscaCodigo = function(linhas) {
+        let codigo = 0;
+        if (linhas.length > 0) {
+            codigo = linhas[0].cl;
+        }
+        return codigo;
+    };
+
+    let posicaoPorCodigoLinha = this.posicaoPorCodigoLinha.bind(this);
+    return this.buscarLinhaSentido(codigo, sentido).then(buscaCodigo).then(posicaoPorCodigoLinha);
+
 };
 
 module.exports = SPTransWrapper;
